@@ -1,7 +1,6 @@
-class UsersController < ActionController::Base
-  protect_from_forgery with: :exception
+class UsersController < ApplicationController
 
-  def index
+  def new
 
   end
 end
