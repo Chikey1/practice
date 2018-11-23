@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    render layout: 'dark_layout'
+    if logged_in?
+      render :dashboard
+    else
+      render :index
+    end
   end
 end

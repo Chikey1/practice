@@ -1,0 +1,33 @@
+<div id='sessions-new'>
+  <section class='text-center py-5'>
+    <%= form_for(:session, url: signin_path) do |f| %>
+      <div class='bg-light p-4 text-dark rounded'>
+        <div class='my-2 mx-4'>
+          <% if @error %>
+            <div class='alert alert-danger alert-dismissible fade show text-left' role="alert">
+              <%= @error %>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <% end %>
+          <% provide(:title, "signin") %>
+          <h2 class='mb-2 py-3'>Welcome back!</h2>
+          <div class='mb-3 text-left'>
+            <%= f.label :email, class: 'm-1' %>
+            <%= f.email_field :email, class: 'w-100' %>
+          </div>
+          <div class='mb-3 text-left'>
+            <%= f.label :password, class: 'm-1' %>
+            <%= f.password_field :password, class: 'w-100' %>
+          </div>
+          <div class='py-3'>
+            <%= f.submit "Log in", class: "btn btn-dark px-5" %>
+          </div>
+          <p class='mt-2 mb-0'>New user? <%= link_to "Sign up now!", signup_path %></p>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</div>
+<% console %>
