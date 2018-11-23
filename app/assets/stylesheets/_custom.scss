@@ -1,9 +1,50 @@
-#signed-out-root {
-  max-width: 800px;
-  margin: auto;
+#signed-out-home {
+  section {
+    position: relative;
+
+    &::after {
+      content: "";
+      background-image: url('home_splash.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    div {
+      max-width: 800px;
+      margin: auto;
+      opacity: 1;
+    }
+  }
 }
 
 #sign-up-nav-link {
   border: 2px solid white;
   border-radius: 2px;
+}
+
+#users-new {
+  max-width: 800px;
+  margin: auto;
+
+  form {
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+#sessions-new {
+
+  form {
+    max-width: 500px;
+    margin: auto;
+  }
+
 }
