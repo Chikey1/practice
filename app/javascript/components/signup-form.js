@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
               type='password'
               validate={[requirePasswordConfirmation, passwordsMustMatch]}
             />
-          <div className='py-2'>
+          <div className='pb-2 pt-3'>
             <button type='submit' className='btn btn-dark px-4' disabled={submitting}>Submit</button>
           </div>
         </div>
