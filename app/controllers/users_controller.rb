@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params(params))
     if @user.save
-      log_in(user)
+      log_in(@user)
       head :ok, content_type: "text/html"
     else
       # TODO: implement error message in front end

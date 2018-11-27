@@ -7,7 +7,9 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
     format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  VALID_PASSWORD_REGEX = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}/
 
+  has_secure_password
+  validates :password, presence: true, length: { maximum: 30 },
+    format: { with: VALID_PASSWORD_REGEX }
 end

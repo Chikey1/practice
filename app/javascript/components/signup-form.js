@@ -1,7 +1,14 @@
 import React from 'react'
 import { createStore, combineReducers } from 'redux'
 import { reducer as formReducer, Field, reduxForm } from 'redux-form'
-import { required, cleanName, email, passwordsMustMatch, password } from 'components/utility/form-validators'
+import {
+  required,
+  cleanName,
+  email,
+  passwordsMustMatch,
+  password,
+  maxLength,
+} from 'components/utility/form-validators'
 
 import { navigateTo } from 'components/utility/location'
 import LabelledInput from 'components/utility/labelled-input'
@@ -48,21 +55,21 @@ class SignupForm extends React.Component {
               component={LabelledInput}
               type='text'
               label='Name'
-              validate={[requireName, cleanName]}
+              validate={[requireName, cleanName, maxLengthName]}
             />
             <Field
               name='email'
               component={LabelledInput}
               label='Email'
               type='email'
-              validate={[requireEmail, email]}
+              validate={[requireEmail, email, maxLengthEmail]}
             />
             <Field
               name='password'
               component={LabelledInput}
               label='Password'
               type='password'
-              validate={[requirePassword, password]}
+              validate={[requirePassword, password, maxLengthPassword]}
             />
             <Field
               name='password_confirmation'
@@ -84,6 +91,9 @@ const requireEmail = required('Email')
 const requireName = required('Name')
 const requirePassword = required('Password')
 const requirePasswordConfirmation = required('Password confirmation')
+const maxLengthName = maxLength('Name', 50)
+const maxLengthEmail = maxLength('Email', 255)
+const maxLengthPassword = maxLength('Password', 30)
 
 export default reduxForm({
   form: 'signup'  // a unique identifier for this form
