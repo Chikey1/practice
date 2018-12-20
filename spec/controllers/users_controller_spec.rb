@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-
   describe '#new' do
-    it "should respond successfully" do
+    it 'should respond successfully' do
       get :new
       expect(response.status).to eq(200)
     end
   end
 
   describe '#create' do
-    it "should successfully create a user" do
+    it 'should successfully create a user' do
       user_params = {
         user: {
           name: 'Test',
@@ -23,5 +24,4 @@ RSpec.describe UsersController, type: :controller do
       expect(User.count).to eq 1
     end
   end
-
 end

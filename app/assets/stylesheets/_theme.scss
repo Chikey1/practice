@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+.btn-light {
+  font-weight: 600;
+  color: #343a40;
+  background-color: #f8f9fa;
+
+  &:hover, &.disabled, &:disabled {
+    opacity: 0.7;
+    color: #343a40;
+    background-color: #f8f9fa;
+  }
+}
+
+.btn-dark:hover {
+  opacity: 0.7;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+  color: inherit;
+  opacity: 0.7;
+  text-decoration: inherit;
+  }
+}
+
+input {
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 5px;
+
+  &:focus, &:active {
+    outline: none;
+    border-width: 2px;
+    padding: 4px;
+  }
+}
+
+header, footer {
+  max-width: 800px;
+  margin: auto;
+}
+
+.input-error {
+  font-size: 14px;
+}
