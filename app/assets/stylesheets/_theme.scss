@@ -1,8 +1,12 @@
 html, body {
   height: 100%;
-  width: 100%;
 }
 
+#main-content {
+  padding-top: 81px;
+  height: auto !important; /* real browsers */
+  min-height: 100%; /* real browsers */
+}
 
 .btn-light {
   font-weight: 600;
@@ -42,9 +46,21 @@ input {
   }
 }
 
-header, footer {
-  max-width: 800px;
-  margin: auto;
+header {
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+
+  div {
+    max-width: 800px;
+    margin: auto;
+  }
+}
+
+footer {
+  width: 100%;
 }
 
 .input-error {

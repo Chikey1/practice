@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application' %>
   </head>
   <body class='bg-dark text-white'>
-    <header class='py-3'>
+    <header class='py-3 bg-dark text-white'>
       <div class='d-flex justify-content-between pt-1'>
         <h3 class='mt-1'><%= link_to 'Mindful Practice', '/' %></h3>
         <nav class='nav'>
@@ -25,8 +25,10 @@
         </nav>
       </div>
     </header>
-    <%= yield %>
-    <footer class='py-1 text-center'>
+    <div id='main-content'>
+      <%= yield %>
+    </div>
+    <footer class='py-1 text-center bg-dark text-white'>
       <small>Something something something</small>
     </footer>
    </body>

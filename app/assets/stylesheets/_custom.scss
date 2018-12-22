@@ -1,6 +1,9 @@
 #signed-out-home {
+  height: 85vh;
+
   section {
     position: relative;
+    height: 85vh;
 
     &::after {
       content: "";
@@ -15,6 +18,7 @@
       right: 0;
       position: absolute;
       z-index: -1;
+      height: 85vh;
     }
 
     div {
