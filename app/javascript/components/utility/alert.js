@@ -13,9 +13,9 @@ function Alert (props) {
   )
   return (
     <div>
-      <div class={classes} role="alert">
+      <div className={classes} role="alert">
         {props.message}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

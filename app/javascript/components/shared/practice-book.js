@@ -1,15 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { navigateTo } from 'components/utility/location'
+import classnames from 'classnames'
 
 function PracticeBook (props) {
+  const practiceBookClasses = classnames(
+    'practice-book',
+    'd-flex',
+    'flex-column',
+    'justify-content-between',
+    'align-items-stretch',
+  )
+
+  const titleClasses = classnames(
+    'font-weight-bold',
+    'text-uppercase',
+    'mb-0',
+    'practice-book-title',
+    'text-info',
+    'pr-2',
+  )
+
+  const iconClasses = classnames(
+    'icon',
+    'm-3',
+    'align-self-end',
+    `${props.book.instrument}-icon`
+  )
+
+  const entriesText = (entryCount) => {
+    switch (entryCount) {
+      case 0:
+        return ' '
+      case 1:
+        return '1 entry'
+      default:
+        return props.book.entries + ' entries'
+    }
+  }
+
   return (
-    <div className='practice-book-container'>
-      <div className='practice-book-green d-flex justify-content-center align-items-center'>
-        <div className='practice-book-title'>
-          <h4>{props.book.name}</h4>
+    <button className={practiceBookClasses} onClick={() => navigateTo(`/books/${props.book.id}`)}>
+      <div className={iconClasses}></div>
+      <div className='pl-3 pr-2 pb-3 align-self-start text-left w-100'>
+        <p className='subtext text-light font-weight-bold mb-0 text-right pr-1'>
+          {entriesText(props.book.entries)}
+        </p>
+        <div className='d-flex align-items-center'>
+          <h5 className={titleClasses}>{props.book.name}</h5>
+          <div className='flex-grow-1 title-decorative-line'> </div>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
 
@@ -17,6 +59,8 @@ PracticeBook.propTypes = {
   book: PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
+    instrument: PropTypes.string.isRequired,
+    entries: PropTypes.number.isRequired,
   }).isRequired,
 }
 

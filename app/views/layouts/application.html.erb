@@ -9,10 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
   </head>
-  <body class='bg-dark text-white'>
-    <header class='p-3 bg-dark text-white'>
+  <body>
+    <header class='p-3 bg-light text-dark'>
       <div class='d-flex justify-content-between pt-1'>
-        <h3 class='mt-1'><%= link_to 'Mindful Practice', '/' %></h3>
+        <h3 class='mt-1 font-weight-bold'><%= link_to 'Mindful Practice.', '/' %></h3>
         <nav class='nav'>
           <%= link_to 'contact', '#', class: 'nav-link' %>
           <% if logged_in? %>
@@ -28,8 +28,5 @@
     <div id='main-content'>
       <%= yield %>
     </div>
-    <footer class='py-1 text-center bg-dark text-white'>
-      <small>Something something something</small>
-    </footer>
    </body>
 </html>

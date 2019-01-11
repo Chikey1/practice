@@ -1,5 +1,5 @@
 <div id='sessions-new'>
-  <section class='text-center py-5'>
+  <section class='text-center'>
     <%= form_for(:session, url: signin_path) do |f| %>
       <div class='bg-light p-4 text-dark rounded'>
         <div class='my-2 mx-4'>
@@ -12,7 +12,7 @@
             </div>
           <% end %>
           <% provide(:title, "signin") %>
-          <h2 class='mb-2 py-3'>Welcome back!</h2>
+          <h2 class='text-primary mb-4 py-3 font-weight-bold'>- Welcome back -</h2>
           <div class='mb-3 text-left'>
             <%= f.label :email, class: 'm-1' %>
             <%= f.email_field :email, class: 'w-100' %>

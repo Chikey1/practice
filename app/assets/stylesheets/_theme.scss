@@ -1,5 +1,7 @@
 html, body {
   height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F7FAF7;
 }
 
 #main-content {
@@ -10,18 +12,25 @@ html, body {
 
 .btn-light {
   font-weight: 600;
-  color: #343a40;
-  background-color: #f8f9fa;
+  color: #292F36;
+  background-color: #F7FAF7;
 
   &:hover, &.disabled, &:disabled {
     opacity: 0.7;
-    color: #343a40;
-    background-color: #f8f9fa;
+    color: #292F36;
+    background-color: #F7FAF7;
   }
 }
 
-.btn-dark:hover {
-  opacity: 0.7;
+.btn-dark {
+  background-color: #292F36;
+  color: #F7FAF7;
+
+  &:hover {
+    opacity: 0.8;
+    background-color: #292F36;
+    color: #F7FAF7;
+  }
 }
 
 a {
@@ -65,4 +74,17 @@ footer {
 
 .input-error {
   font-size: 14px;
+}
+
+form select {
+  width: 100%;
+  height: 36px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: white;
+
+  &:focus, &:active {
+    outline: none;
+    border-width: 2px;
+  }
 }

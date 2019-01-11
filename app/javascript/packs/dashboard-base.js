@@ -11,8 +11,12 @@ const rootElement = document.getElementById('dashboard-root')
 const props = JSON.parse(rootElement.getAttribute('data-props'))
 
 render(
-    <Provider store={store}>
-        <Dashboard books={props} />
-    </Provider>,
-    rootElement
+	<Provider store={store}>
+		<Dashboard
+			books={props.books}
+			userName={props.user_name}
+			instrumentCategories={props.instrument_categories}
+		/>
+	</Provider>,
+	rootElement
 );

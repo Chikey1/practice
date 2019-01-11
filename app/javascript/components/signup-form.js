@@ -11,6 +11,7 @@ import {
 } from 'components/utility/form-validators'
 
 import { navigateTo } from 'components/utility/location'
+import { post } from 'components/utility/api'
 import LabelledInput from 'components/utility/labelled-input'
 import Alert from 'components/utility/alert'
 
@@ -23,10 +24,7 @@ class SignupForm extends React.Component {
     const data = { user: values }
     this.setState({ serverError: false })
 
-    fetch('/signup', {
-      method: 'POST',
-      body: JSON.stringify(data)
-    }).then(function (response) {
+    post('/signup', data).then(function (response) {
       if (response.status === 200) {
         navigateTo('/')
       } else {
@@ -49,7 +47,9 @@ class SignupForm extends React.Component {
               message='Could not create account.'
             />
           }
-          <h2 className='mb-4 py-3'>Create an Account</h2>
+            <h2 className='text-primary mb-4 py-3 font-weight-bold'>
+              - Create an Account -
+            </h2>
             <Field
               name='name'
               component={LabelledInput}

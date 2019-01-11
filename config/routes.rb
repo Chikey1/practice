@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get    '/signin',   to: 'sessions#new'
   post   '/signin',   to: 'sessions#create'
   delete '/logout',   to: 'sessions#destroy'
+  resources :books,   only: [:show, :create] do
+    resources :book_pages, only: [:show, :new]
+  end
 end

@@ -14,8 +14,13 @@ RSpec.describe Book, type: :model do
     expect(book.valid?).to be false
   end
 
-  it 'must have a name shorter than 20 characters' do
+  it 'must have a name shorter than 12 characters' do
     book.name = 'a' * 60
+    expect(book.valid?).to be false
+  end
+
+  it 'must have an instrument' do
+    book.instrument = nil
     expect(book.valid?).to be false
   end
 end

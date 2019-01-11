@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181226173618) do
+ActiveRecord::Schema.define(version: 20190111004551) do
 
   create_table "book_pages", force: :cascade do |t|
     t.integer "book_id"
     t.date "practice_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "other_notes"
+    t.integer "mood"
     t.index ["book_id"], name: "index_book_pages_on_book_id"
   end
 
@@ -25,7 +27,17 @@ ActiveRecord::Schema.define(version: 20181226173618) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "color"
+    t.integer "instrument"
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.integer "book_page_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_page_id"], name: "index_goals_on_book_page_id"
   end
 
   create_table "users", force: :cascade do |t|

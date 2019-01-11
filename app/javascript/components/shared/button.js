@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 function Button (props) {
   return (
     <button
-      disabled={props.disabled}
       type='button'
-      class='btn btn-info'
+      className='btn btn-info'
+      {...props}
     >
       {props.children}
     </button>
@@ -15,7 +15,7 @@ function Button (props) {
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 }
 
 Button.defaultProps = {

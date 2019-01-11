@@ -1,51 +1,69 @@
-.practice-book-container {
-  padding-right: 3px;
-  width: 100%;
-  border-color: $secondary;
-  border-style: solid;
-  border-width: 1px 1px 1px 0;
+.practice-book {
+  width: 220px;
+  height: 220px;
+  border: 2px #4ECDC4 solid;
+  border-radius: 10px;
+  box-shadow:  0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: all 0.1s linear;
+  background-color: #4ECDC4;
+
+  &:hover, &:focus {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    transform: scale(1.02);
+  }
+
+  .title-decorative-line {
+    content: ' ';
+    border-bottom: 2px #FFE66D solid;
+  }
+
+  .practice-book-title {
+    word-break: break-word;
+  }
+
+  .subtext {
+    font-size: 14px;
+  }
 }
 
-.practice-book-blue {
-  height: 13em;
-  width: 100%;
-  background-color: #d0fffe;
-  border: $secondary solid 1px;
-  border-width: 1px 2px;
+.blue-decorative-line {
+  content: ' ';
+  border-bottom: 4px #4ECDC4 dashed;
 }
 
-.practice-book-green {
-  height: 13em;
+.book-page-container {
+  max-width: 800px;
   width: 100%;
-  background-color: #e4ffde;
-  border: $secondary solid 1px;
-  border-width: 1px 2px;
-}
+  margin: auto;
 
-.practice-book-orange {
-  height: 13em;
-  width: 100%;
-  background-color: #ffe7d3;
-  border: $secondary solid 1px;
-  border-width: 1px 2px;
-}
+  .book-page {
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0px 0px 42px -5px rgba(0,0,0,0.75);
 
-.practice-book-yellow {
-  height: 13em;
-  width: 100%;
-  background-color: #fffddb;
-  border: $secondary solid 1px;
-  border-width: 1px 2px;
-}
+    .goals-container {
+      border: 2px #4ECDC4 solid;
+      border-radius: 10px;
+      height: fit-content;
+      width: 100%;
+    }
 
-.practice-book-magenta {
-  height: 13em;
-  width: 100%;
-  background-color: #ffd3fd;
-  border: $secondary solid 1px;
-  border-width: 1px 2px;
-}
+    .mood-icon {
+      height: 55px;
+      width: 55px;
+      opacity: 0.5;
+    }
 
-.practice-book-title {
-  word-wrap: break-word;
+    .mood-icon-selected {
+      height: 55px;
+      width: 55px;
+    }
+
+    .mood-icon-underline {
+      border-top: 2px solid #FF6B6B;
+      width: 50%;
+      content: ' ';
+      margin: auto;
+    }
+  }
 }

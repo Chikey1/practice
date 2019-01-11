@@ -1,9 +1,11 @@
 #signed-out-home {
-  height: 85vh;
+  padding-top: 81px;
+  margin-top: -81px;
+  height: 100vh;
 
   section {
     position: relative;
-    height: 85vh;
+    height: 100%;
 
     &::after {
       content: "";
@@ -11,26 +13,25 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      opacity: 0.5;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
       position: absolute;
       z-index: -1;
-      height: 85vh;
+      height: 100%;
     }
 
     div {
       max-width: 800px;
       margin: auto;
-      opacity: 1;
+      background: rgba(247,255,247,0.5);
     }
   }
 }
 
 #sign-up-nav-link {
-  border: 2px solid white;
+  border: 1px solid #292F36;
   border-radius: 2px;
 }
 
@@ -57,5 +58,13 @@
 #dashboard-root {
   .dashboard-title {
     border-bottom: black solid 1px;
+  }
+
+  #create-book-button {
+    width: 220px;
+    height: 220px;
+    border: 2px #4ECDC4 dashed;
+    border-radius: 10px;
+    transition: all 0.1s linear;
   }
 }
