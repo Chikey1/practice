@@ -11,3 +11,11 @@ export function post (uri, data, optionalHeaders = {}) {
     body: JSON.stringify(data),
   })
 }
+
+export function deleteRequest (uri, data, optionalHeaders = {}) {
+  return fetch(uri, {
+    method: 'DELETE',
+    headers: Object.assign({}, defaultHeaders, optionalHeaders),
+    body: JSON.stringify(data),
+  })
+}

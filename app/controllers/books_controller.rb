@@ -23,9 +23,49 @@ class BooksController < ApplicationController
     end
   end
 
+  def update
+    books = []
+
+    params['_json'].each do |p|
+      book_params = update_book_params(p)
+      book = current_user.books.find(book_params[:id])
+      return render status: :unprocessable_entity if book.nil?
+
+      book.name = book_params['name']
+      book.instrument = book_params['instrument']
+      books.push(book)
+    end
+
+    updated = ActiveRecord::Base.transaction do
+      books.each do |book|
+        book.save
+      end
+    end
+
+    if updated
+      head :ok, content_type: 'text/html'
+    else
+      render status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    book = current_user.books.find(params[:id])
+    return render status: :unprocessable_entity if book.nil?
+    if book.delete
+      head :ok, content_type: 'text/html'
+    else
+      render status: :unprocessable_entity
+    end
+  end
+
   private
 
   def book_params(params)
     params.require(:book).permit(:name, :instrument).merge(user_id: current_user.id)
+  end
+
+  def update_book_params(params)
+    params.permit(:id, :name, :instrument)
   end
 end

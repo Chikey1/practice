@@ -60,11 +60,51 @@
     border-bottom: black solid 1px;
   }
 
-  #create-book-button {
+  #full-create-book-button {
     width: 220px;
     height: 220px;
     border: 2px #4ECDC4 dashed;
     border-radius: 10px;
     transition: all 0.1s linear;
+  }
+
+  .split-button-container {
+    #create-book-button {
+      width: 220px;
+      height: 110px;
+      border: 2px #4ECDC4 dashed;
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      transition: all 0.1s linear;
+
+      &:focus {
+        z-index: 1;
+      }
+    }
+
+    .create-edit-book-divider {
+      content: ' ';
+      border-top: 1px #dae0e5 solid;
+      width: 70%;
+      transition: all 0.1s linear;
+    }
+
+    #edit-book-button {
+      width: 220px;
+      height: 110px;
+      border-width: 0 2px 2px 2px;
+      border-color: #4ECDC4;
+      border-style: dashed;
+      border-radius: 0 0 10px 10px;
+      transition: all 0.1s linear;
+
+      &:focus {
+        z-index: 1;
+      }
+    }
+
+    &:hover .create-edit-book-divider {
+      width: 100%;
+    }
   }
 }

@@ -17,7 +17,7 @@ function PracticeBook (props) {
     'text-uppercase',
     'mb-0',
     'practice-book-title',
-    'text-info',
+    'text-light',
     'pr-2',
   )
 
@@ -43,7 +43,7 @@ function PracticeBook (props) {
     <button className={practiceBookClasses} onClick={() => navigateTo(`/books/${props.book.id}`)}>
       <div className={iconClasses}></div>
       <div className='pl-3 pr-2 pb-3 align-self-start text-left w-100'>
-        <p className='subtext text-light font-weight-bold mb-0 text-right pr-1'>
+        <p className='subtext text-light mb-0 text-right pr-1'>
           {entriesText(props.book.entries)}
         </p>
         <div className='d-flex align-items-center'>
