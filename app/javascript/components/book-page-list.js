@@ -72,38 +72,46 @@ class BookPageList extends React.Component {
             </h2>
             <div className='flex-grow-1 blue-decorative-line'> </div>
           </div>
-          <div className='row font-italic'>
-            <div className='col-3'>date</div>
-            <div className='col-7'>goals (preview)</div>
-            <div className='col-1'>mood</div>
-            <div className='col-1'></div>
-          </div>
-          <div className='thin-blue-decorative-line mt-2 mb-4'></div>
-          { bookPage.map((page, index) => {
-            return (
-              <div key={index}>
-                <div className='row'>
-                  <div className='col-3'>
-                    {page.date}
+          <div className='px-2'>
+            <div className='row font-italic'>
+              <div className='col-3'>date</div>
+              <div className='col-6 col-sm-7'>goals (preview)</div>
+              <div className='col-1 d-none d-sm-block'>mood</div>
+              <div className='col-1'></div>
+            </div>
+            <div className='thin-blue-decorative-line mt-2 mb-4'></div>
+            { bookPage.map((page, index) => {
+              return (
+                <div key={index}>
+                  <div className='row'>
+                    <div className='col-3'>
+                      {page.date}
+                    </div>
+                    <div className='col-6 col-sm-7'>
+                      {page.goal_preview}
+                    </div>
+                    <div className='col-1 d-none d-sm-block'>{page.mood}</div>
+                    <div className='col-1'>
+                      <h3 className='font-weight-bold text-primary'>
+                        <a href={'/books/' + book.id + '/book_pages/' + page.id}>
+                          &#8594;
+                        </a>
+                      </h3>
+                    </div>
                   </div>
-                  <div className='col-7'>
-                    {page.goal_preview}
-                  </div>
-                  <div className='col-1'>{page.mood}</div>
-                  <div className='col-1'>
-                    <h3 className='font-weight-bold text-primary'>
-                      <a href={'/books/' + book.id + '/book_pages/' + page.id}>
-                        &#8594;
-                      </a>
-                    </h3>
-                  </div>
+                  <div className='thin-blue-decorative-line mt-2 mb-4'></div>
                 </div>
-                <div className='thin-blue-decorative-line mt-2 mb-4'></div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
-        <div className='d-flex justify-content-center mt-3 mb-5 pt-2'>
+        <div className='d-flex flex-wrap flex-row-reverse justify-content-center mt-3 mb-5 pt-2'>
+          <Button
+            color='standard-size-button btn-primary m-2'
+            onClick={() => navigateTo('/books/' + book.id + '/book_pages/new')}
+          >
+            New Page
+          </Button>
           <Button
             color='standard-size-button btn-danger m-2 font-weight-bold'
             onClick={() => {}}
@@ -111,12 +119,6 @@ class BookPageList extends React.Component {
             data-target='#deleteBookModal'
           >
             Delete Book
-          </Button>
-          <Button
-            color='standard-size-button btn-primary m-2'
-            onClick={() => navigateTo('/books/' + book.id + '/book_pages/new')}
-          >
-            New Page
           </Button>
         </div>
       </div>

@@ -17,7 +17,7 @@ import Alert from 'components/utility/alert'
 class EditBookPage extends React.Component {
   state = {
     serverError: false,
-    selectedMood: this.props.bookPage.selectedMood,
+    selectedMood: this.props.bookPage.mood,
   }
 
   changeMood = (value) => {
@@ -103,18 +103,18 @@ class EditBookPage extends React.Component {
           <EditMood selectedMood={bookPage.mood} onChange={this.changeMood} />
 
           {/* <Mood selectedMood={bookPage.mood} /> */}
-          <div className='d-flex justify-content-center mt-4 pt-2'>
-            <Button
-              color='standard-size-button btn-secondary m-2 font-weight-bold'
-              onClick={this.props.cancel}
-            >
-              Cancel
-            </Button>
+          <div className='d-flex flex-wrap flex-row-reverse justify-content-center mt-4 pt-2'>
             <Button
               color='standard-size-button btn-primary m-2'
               type='submit'
             >
               Save
+            </Button>
+            <Button
+              color='standard-size-button btn-secondary m-2 font-weight-bold'
+              onClick={this.props.cancel}
+            >
+              Cancel
             </Button>
           </div>
         </div>

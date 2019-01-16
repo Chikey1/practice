@@ -88,14 +88,12 @@ class BookPage extends React.Component {
             </a>
           }
         </div>
-        <div className='d-flex justify-content-center mt-3 mb-5 pt-2'>
-        <Button
-            color='standard-size-button btn-danger m-2 font-weight-bold'
-            onClick={() => {}}
-            data-toggle='modal'
-            data-target='#deleteBookModal'
+        <div className='d-flex justify-content-center flex-row-reverse flex-wrap mt-3 mb-5 pt-2'>
+          <Button
+            color='standard-size-button btn-primary m-2'
+            onClick={() => navigateTo('/books/' + book.id + '/book_pages/new')}
           >
-            Delete Book
+            New Page
           </Button>
           <Button
             color='standard-size-button btn-secondary m-2 font-weight-bold'
@@ -104,10 +102,12 @@ class BookPage extends React.Component {
             List Pages
           </Button>
           <Button
-            color='standard-size-button btn-primary m-2'
-            onClick={() => navigateTo('/books/' + book.id + '/book_pages/new')}
+            color='standard-size-button btn-danger m-2 font-weight-bold'
+            onClick={() => {}}
+            data-toggle='modal'
+            data-target='#deleteBookModal'
           >
-            New Page
+            Delete Book
           </Button>
         </div>
       </div>

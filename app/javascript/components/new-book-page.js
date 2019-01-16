@@ -105,19 +105,19 @@ class NewBookPage extends React.Component {
               <EditRepetoire repetoire={[]} nullField={this.nullField} />
               <EditNotes />
               <EditMood selectedMood={null} onChange={this.changeMood} />
-              <div className='d-flex justify-content-center mt-4 pt-2'>
-                <Button
-                  color='standard-size-button btn-secondary m-2 font-weight-bold'
-                  onClick={() => navigateTo('/')}
-                >
-                  Cancel
-                </Button>
+              <div className='d-flex flex-wrap flex-row-reverse justify-content-center mt-4 pt-2'>
                 <Button
                   color='standard-size-button btn-primary m-2'
                   type='submit'
                   disabled={this.state.disableSave}
                 >
                   Save
+                </Button>
+                <Button
+                  color='standard-size-button btn-secondary m-2 font-weight-bold'
+                  onClick={() => navigateTo('/')}
+                >
+                  Cancel
                 </Button>
               </div>
             </div>

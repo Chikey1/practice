@@ -17,7 +17,7 @@ function Mood (props) {
   return (
     <div className='px-3 pt-3 my-1'>
       <h5 className='text-uppercase text-left font-weight-bold text-muted'>My Mood</h5>
-      <div className='d-flex'>
+      <div className='d-flex flex-wrap'>
         { props.selectedMood == 1 ?
           <div>
             <img className='m-2 mood-icon-selected' src={Mood1Selected} />

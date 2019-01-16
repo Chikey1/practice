@@ -40,7 +40,7 @@ class EditTechniques extends React.Component {
         { this.state.techniques.map((technique, index) => {
           return (
             <div key={index} className='row'>
-              <div className='col-3'>
+              <div className='col-10 col-sm-3'>
                 <Field
                   name={'techniqueName' + technique.id}
                   component={InvisibleInput}
@@ -50,7 +50,16 @@ class EditTechniques extends React.Component {
                   validate={[requireTechniqueName, maxLengthTechniqueName]}
                 />
               </div>
-              <div className='col-8'>
+              <div className='col-1 pt-1 d-block d-sm-none'>
+                <button
+                  type='button'
+                  onClick={() => this.deleteTechnique(technique)}
+                  className='ml-2 mt-2 close text-danger opacity-1'
+                >
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div className='col-12 col-sm-8'>
                 <Field
                   name={'techniqueDescription' + technique.id}
                   component={InvisibleTextarea}
@@ -59,7 +68,7 @@ class EditTechniques extends React.Component {
                   validate={[requireTechniqueDescription, maxLengthTechniqueDescription]}
                 />
               </div>
-              <div className='col-1 pt-1'>
+              <div className='col-1 pt-1 d-none d-sm-block'>
                 <button
                   type='button'
                   onClick={() => this.deleteTechnique(technique)}

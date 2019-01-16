@@ -48,7 +48,7 @@ class EditGoals extends React.Component {
                   validate={[requireGoal, maxLengthGoal]}
                 />
               </div>
-              <div className='col-1 pt-1'>
+              <div className='col-12  col-sm-1 d-flex justify-content-center align-items-start pt-1'>
                 <button
                   type='button'
                   onClick={() => this.deleteGoal(goal)}

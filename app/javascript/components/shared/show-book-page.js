@@ -16,6 +16,7 @@ class ShowBookPage extends React.Component {
   state = { display: 'show', deleteError: false }
 
   setShow = () => {
+    window.scroll(0,0)
     this.setState({ display: 'show' })
   }
 
@@ -24,6 +25,7 @@ class ShowBookPage extends React.Component {
   }
 
   setEdit () {
+    window.scroll(0,0)
     this.setState({ display: 'edit' })
   }
 
@@ -61,18 +63,18 @@ class ShowBookPage extends React.Component {
               />
             }
             <div className='text-center pb-2 px-2 pt-4'>Are you sure you want to delete this page?</div>
-            <div className='d-flex justify-content-center mt-4 pt-2'>
-              <Button
-                color='standard-size-button btn-secondary m-2 font-weight-bold'
-                onClick={this.setShow}
-              >
-                Cancel
-              </Button>
+            <div className='d-flex justify-content-center mt-4 pt-2 flex-wrap flex-row-reverse'>
               <Button
                 color='standard-size-button btn-primary m-2'
                 onClick={() => this.deletePage()}
               >
                 Delete
+              </Button>
+              <Button
+                color='standard-size-button btn-secondary m-2 font-weight-bold'
+                onClick={this.setShow}
+              >
+                Cancel
               </Button>
             </div>
           </div>
@@ -86,18 +88,18 @@ class ShowBookPage extends React.Component {
             <RepetoireSubsection content={bookPage.repetoire} />
             <NotesSubsection title='Other Notes' content={bookPage.other_notes}/>
             <Mood selectedMood={bookPage.mood} />
-            <div className='d-flex justify-content-center mt-4 pt-2'>
-              <Button
-                color='standard-size-button btn-secondary m-2 font-weight-bold'
-                onClick={() => this.setDelete()}
-              >
-                Delete
-              </Button>
+            <div className='d-flex flex-wrap flex-row-reverse justify-content-center mt-4 pt-2'>
               <Button
                 color='standard-size-button btn-primary m-2'
                 onClick={() => this.setEdit()}
               >
                 Edit
+              </Button>
+              <Button
+                color='standard-size-button btn-secondary m-2 font-weight-bold'
+                onClick={() => this.setDelete()}
+              >
+                Delete
               </Button>
             </div>
           </div>

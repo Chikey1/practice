@@ -40,7 +40,7 @@ class EditRepetoire extends React.Component {
         { this.state.repetoire.map((piece, index) => {
           return (
             <div key={index} className='row'>
-              <div className='col-3'>
+              <div className='col-10 col-sm-3'>
                 <Field
                   name={'pieceTitle' + piece.id}
                   component={InvisibleInput}
@@ -50,7 +50,16 @@ class EditRepetoire extends React.Component {
                   validate={[requirePieceTitle, maxLengthPieceTitle]}
                 />
               </div>
-              <div className='col-8'>
+              <div className='col-1 pt-1 d-block d-sm-none'>
+                <button
+                  type='button'
+                  onClick={() => this.deletePiece(piece)}
+                  className='ml-2 mt-2 close text-danger opacity-1'
+                >
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div className='col-12 col-sm-8'>
                 <Field
                   name={'pieceDescription' + piece.id}
                   component={InvisibleTextarea}
@@ -59,7 +68,7 @@ class EditRepetoire extends React.Component {
                   validate={[requirePieceDescription, maxLengthPieceDescription]}
                 />
               </div>
-              <div className='col-1 pt-1'>
+              <div className='col-1 pt-1 d-none d-sm-block'>
                 <button
                   type='button'
                   onClick={() => this.deletePiece(piece)}
