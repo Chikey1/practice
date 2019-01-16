@@ -1,15 +1,15 @@
 import React from 'react'
 
-const InvisibleInput = (field) => {
+const InvisibleTextarea = (field) => {
   return (
     <div className='mb-3 text-left'>
-      <input
+      <textarea
         {...field.input}
-        placeholder={field.placeholder}
-        type={field.type}
         className='w-100 invisible-input'
         name={field.name}
         disabled={!!field.meta.submitting}
+        placeholder={field.placeholder}
+        rows={field.rows || '3'}
       />
       { field.meta.touched && field.meta.error &&
         <div className='text-danger text-left input-error pl-1 pt-1'>
@@ -20,4 +20,4 @@ const InvisibleInput = (field) => {
   )
 }
 
-export default InvisibleInput
+export default InvisibleTextarea

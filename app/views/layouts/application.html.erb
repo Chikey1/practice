@@ -14,8 +14,8 @@
       <div class='d-flex justify-content-between pt-1'>
         <h3 class='mt-1 font-weight-bold'><%= link_to 'Mindful Practice.', '/' %></h3>
         <nav class='nav'>
-          <%= link_to 'contact', '#', class: 'nav-link' %>
           <% if logged_in? %>
+            <%= link_to 'books', '/', class: 'nav-link' %>
             <%= link_to 'settings', '#', class: 'nav-link' %>
             <%= link_to "sign out", logout_path, class: 'nav-link', method: :delete %>
           <% else %>
@@ -28,5 +28,17 @@
     <div id='main-content'>
       <%= yield %>
     </div>
-   </body>
+  </body>
+  <script>
+    var tx = document.getElementsByTagName('textarea');
+    for (var i = 0; i < tx.length; i++) {
+      tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+      tx[i].addEventListener("input", OnInput, false);
+    }
+
+    function OnInput() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    }
+  </script>
 </html>

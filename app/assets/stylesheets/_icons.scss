@@ -71,3 +71,15 @@
 .trumpet-icon {
   background-image: url('instruments/trumpet.svg');
 }
+
+.circle-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  font-weight: 500;
+  font-size: 32px;
+  border-radius: 50%;
+  background-color: #4ECDC4;
+}

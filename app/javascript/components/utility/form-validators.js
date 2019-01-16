@@ -30,6 +30,7 @@ export const minLength = (fieldLabel, minLength) => {
 
 export const maxLength = (fieldLabel, maxLength) => {
   return (value) => {
+    if (!value) return
     return value.trim().length <= maxLength
       ? undefined
       : `${fieldLabel} must be less than ${maxLength + 1} characters long`

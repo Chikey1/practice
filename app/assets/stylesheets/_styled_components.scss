@@ -31,6 +31,11 @@
   border-bottom: 4px #4ECDC4 dashed;
 }
 
+.thin-blue-decorative-line {
+  content: ' ';
+  border-bottom: 1px #4ECDC4 solid;
+}
+
 .book-page-container {
   max-width: 800px;
   width: 100%;
@@ -52,6 +57,10 @@
       height: 55px;
       width: 55px;
       opacity: 0.5;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
 
     .mood-icon-selected {

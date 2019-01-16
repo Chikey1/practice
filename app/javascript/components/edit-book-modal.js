@@ -40,7 +40,7 @@ class EditBookModal extends React.Component {
           instrument: values['instrument' + id],
         }
       }
-    }).filter(function (el) {
+    }).filter((el) => {
       return el != null;
     })
   }

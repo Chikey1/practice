@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function PageSubsection (props) {
+function NotesSubsection (props) {
 
   return (
     <div className='px-3 pt-3 my-1 page-subsection'>
@@ -12,4 +12,4 @@ function PageSubsection (props) {
 }
 
 
-export default PageSubsection
+export default NotesSubsection

@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import { navigateTo } from 'components/utility/location'
 import { deleteRequest } from 'components/utility/api'
 
-import ShowBookPage from 'components/shared/show-book-page'
 import Button from 'components/shared/button'
 
-class BookPage extends React.Component {
+class BookPageList extends React.Component {
   state = { deleteBookError: false }
 
   deleteBook() {
@@ -73,35 +72,45 @@ class BookPage extends React.Component {
             </h2>
             <div className='flex-grow-1 blue-decorative-line'> </div>
           </div>
-          <ShowBookPage book={book} bookPage={bookPage} />
-        </div>
-        <div className='d-flex justify-content-center text-dark'>
-          { bookPage.previous_page &&
-            <a href={'/books/' + book.id + '/book_pages/' + bookPage.previous_page}>
-              <h4>&#8592;</h4>
-            </a>
-          }
-          <h5 className='mx-3'>{ bookPage.current_page }</h5>
-          { bookPage.next_page &&
-            <a href={'/books/' + book.id + '/book_pages/' + bookPage.next_page}>
-              <h4>&#8594;</h4>
-            </a>
-          }
+          <div className='row font-italic'>
+            <div className='col-3'>date</div>
+            <div className='col-7'>goals (preview)</div>
+            <div className='col-1'>mood</div>
+            <div className='col-1'></div>
+          </div>
+          <div className='thin-blue-decorative-line mt-2 mb-4'></div>
+          { bookPage.map((page, index) => {
+            return (
+              <div key={index}>
+                <div className='row'>
+                  <div className='col-3'>
+                    {page.date}
+                  </div>
+                  <div className='col-7'>
+                    {page.goal_preview}
+                  </div>
+                  <div className='col-1'>{page.mood}</div>
+                  <div className='col-1'>
+                    <h3 className='font-weight-bold text-primary'>
+                      <a href={'/books/' + book.id + '/book_pages/' + page.id}>
+                        &#8594;
+                      </a>
+                    </h3>
+                  </div>
+                </div>
+                <div className='thin-blue-decorative-line mt-2 mb-4'></div>
+              </div>
+            )
+          })}
         </div>
         <div className='d-flex justify-content-center mt-3 mb-5 pt-2'>
-        <Button
+          <Button
             color='standard-size-button btn-danger m-2 font-weight-bold'
             onClick={() => {}}
             data-toggle='modal'
             data-target='#deleteBookModal'
           >
             Delete Book
-          </Button>
-          <Button
-            color='standard-size-button btn-secondary m-2 font-weight-bold'
-            onClick={() => navigateTo('/books/' + book.id + '/book_pages')}
-          >
-            List Pages
           </Button>
           <Button
             color='standard-size-button btn-primary m-2'
@@ -115,35 +124,11 @@ class BookPage extends React.Component {
   }
 }
 
-BookPage.propTypes = {
+BookPageList.propTypes = {
   book: PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
   }).isRequired,
-  bookPage: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    date: PropTypes.string.isRequired,
-    goals: PropTypes.arrayOf(
-      PropTypes.shape({
-        description: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-      }).isRequired,
-    ),
-    repetoire: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-      }).isRequired,
-    ),
-    techniques: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-      }).isRequired,
-    ),
-  }).isRequired,
 }
 
-export default BookPage
+export default BookPageList

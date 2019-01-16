@@ -52,7 +52,7 @@ class BooksController < ApplicationController
   def destroy
     book = current_user.books.find(params[:id])
     return render status: :unprocessable_entity if book.nil?
-    if book.delete
+    if book.destroy
       head :ok, content_type: 'text/html'
     else
       render status: :unprocessable_entity

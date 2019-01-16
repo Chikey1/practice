@@ -1,11 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 function Button (props) {
+  const buttonClasses = classnames(
+    'btn',
+    props.color,
+  )
   return (
     <button
       type='button'
-      className='btn btn-info'
+      className={buttonClasses}
       {...props}
     >
       {props.children}
@@ -16,10 +21,12 @@ function Button (props) {
 Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  color: PropTypes.string,
 }
 
 Button.defaultProps = {
   disabled: false,
+  color: 'btn-primary',
 }
 
 export default Button
