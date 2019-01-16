@@ -67,5 +67,5 @@ gem 'rubocop', '~> 0.60.0', require: false
 gem 'webpacker'
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg'
 end
