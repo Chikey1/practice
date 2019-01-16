@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
           <h2 className='font-weight-bold text-primary mb-4'>What do you want to practice today?</h2>
           <NewBookModal instrumentCategories={this.props.instrumentCategories}/>
           <EditBookModal books={books} instrumentCategories={this.props.instrumentCategories} />
-          <div className='d-flex flex-wrap row'>
+          <div className='d-flex flex-wrap row justify-content-center justify-content-sm-start'>
             { books.map((book, index) => {
               return(
                 <div key={index} className='p-2'>

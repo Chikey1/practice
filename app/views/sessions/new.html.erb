@@ -12,7 +12,8 @@
             </div>
           <% end %>
           <% provide(:title, "signin") %>
-          <h2 class='text-primary mb-4 py-3 font-weight-bold'>- Welcome back -</h2>
+          <h2 class='text-primary mb-4 py-3 font-weight-bold d-none d-sm-block'>- Welcome back -</h2>
+          <h4 class='text-primary mb-4 py-3 font-weight-bold d-block d-sm-none'>- Welcome back -</h4>
           <div class='mb-3 text-left'>
             <%= f.label :email, class: 'm-1' %>
             <%= f.email_field :email, class: 'w-100' %>

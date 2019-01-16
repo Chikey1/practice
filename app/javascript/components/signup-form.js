@@ -41,15 +41,18 @@ class SignupForm extends React.Component {
     return (
         <form onSubmit={handleSubmit(this.onSubmit)} className='bg-light p-4 text-dark rounded'>
           <div className='my-2 mx-4'>
-          { serverError &&
-            <Alert
-              alertType='alert-danger'
-              message='Could not create account.'
-            />
-          }
-            <h2 className='text-primary mb-4 py-3 font-weight-bold'>
+            { serverError &&
+              <Alert
+                alertType='alert-danger'
+                message='Could not create account.'
+              />
+            }
+            <h2 className='text-primary mb-4 py-3 font-weight-bold  d-none d-sm-block'>
               - Create an Account -
             </h2>
+            <h5 className='text-primary mb-4 font-weight-bold d-block d-sm-none'>
+              Create an Account
+            </h5>
             <Field
               name='name'
               component={LabelledInput}
