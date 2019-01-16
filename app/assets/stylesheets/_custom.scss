@@ -9,7 +9,7 @@
 
     &::after {
       content: "";
-      background-image: url('home_splash.jpg');
+      background-image: image-url('home_splash.jpg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
