@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is currently hosted at: mindful-practice.herokuapp.com/
 
-Things you may want to cover:
+Technologies Used:
 
-* Ruby version
+* Ruby on Rails
+* Rspec
+* FactoryBot
 
-* System dependencies
+* jQuery
+* React
+* Redux
 
-* Configuration
+This application is a prototype.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To do:
+* write more rspec tests
+* integrate jest/enzyme
+* add 'forgot password' functionality
