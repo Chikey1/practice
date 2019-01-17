@@ -1,6 +1,6 @@
 # README
 
-This application is currently hosted at: mindful-practice.herokuapp.com/
+This application is currently hosted at: https://mindful-practice.herokuapp.com/
 
 Technologies Used:
 
@@ -11,6 +11,7 @@ Technologies Used:
 * jQuery
 * React
 * Redux
+* Sass
 
 This application is a prototype.
 
