@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
+  include SessionsHelper
+  before_action :ensure_logged_in
+
   def show
     book = current_user.books.find(params[:id])
 
@@ -29,7 +32,7 @@ class BooksController < ApplicationController
     params['_json'].each do |p|
       book_params = update_book_params(p)
       book = current_user.books.find(book_params[:id])
-      return render status: :unprocessable_entity if book.nil?
+      return head :unprocessable_entity if book.nil?
 
       book.name = book_params['name']
       book.instrument = book_params['instrument']
@@ -45,17 +48,17 @@ class BooksController < ApplicationController
     if updated
       head :ok, content_type: 'text/html'
     else
-      render status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 
   def destroy
     book = current_user.books.find(params[:id])
-    return render status: :unprocessable_entity if book.nil?
+    return head :unprocessable_entity if book.nil?
     if book.destroy
       head :ok, content_type: 'text/html'
     else
-      render status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 

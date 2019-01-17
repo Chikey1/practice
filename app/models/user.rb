@@ -14,6 +14,7 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}/.freeze
 
   has_secure_password
+
   validates :password, presence: true, length: { maximum: 30 },
-                       format: { with: VALID_PASSWORD_REGEX }
+    format: { with: VALID_PASSWORD_REGEX }, allow_nil: true
 end

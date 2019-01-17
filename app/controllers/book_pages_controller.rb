@@ -2,6 +2,8 @@
 
 class BookPagesController < ApplicationController
   include BookPagesHelper
+  include SessionsHelper
+  before_action :ensure_logged_in
 
   def index
     book = Book.find(params[:book_id])
@@ -47,7 +49,7 @@ class BookPagesController < ApplicationController
 
   def create
     book = current_user.books.find(params[:book_id])
-    return render status: :unprocessable_entity if book.nil?
+    return head :unprocessable_entity if book.nil?
     book_page = BookPage.new(book_id: book.id)
     page_params = book_pages_params(params)
 
@@ -117,28 +119,28 @@ class BookPagesController < ApplicationController
     if updated
       redirect_to book_book_page_path(book, book_page)
     else
-      render status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 
   def destroy
     book = current_user.books.find(params[:book_id])
-    return render status: :unprocessable_entity if book.nil?
+    return head :unprocessable_entity if book.nil?
     book_page = book.book_pages.find(params[:id])
-    return render status: :unprocessable_entity if book_page.nil?
+    return head :unprocessable_entity if book_page.nil?
 
     if book_page.destroy
       head :ok, content_type: 'text/html'
     else
-      render status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 
   def update
     book = current_user.books.find(params[:book_id])
-    return render status: :unprocessable_entity if book.nil?
+    return head :unprocessable_entity if book.nil?
     book_page = book.book_pages.find(params[:id])
-    return render status: :unprocessable_entity if book_page.nil?
+    return head :unprocessable_entity if book_page.nil?
     page_params = book_pages_params(params)
 
     # update goals
@@ -257,7 +259,7 @@ class BookPagesController < ApplicationController
     if updated
       head :ok, content_type: 'text/html'
     else
-      render status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 

@@ -16,7 +16,7 @@
         <nav class='nav'>
           <% if logged_in? %>
             <%= link_to 'books', '/', class: 'nav-link' %>
-            <%= link_to 'settings', '#', class: 'nav-link' %>
+            <%= link_to 'settings', '/settings', class: 'nav-link' %>
             <%= link_to "sign out", logout_path, class: 'nav-link', method: :delete %>
           <% else %>
             <%= link_to 'sign in', signin_path, class: 'nav-link' %>
